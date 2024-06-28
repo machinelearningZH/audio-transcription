@@ -1,0 +1,12 @@
+.DS_Store
+.Rhistory
+.env
+.nicegui/
+__pycache__/
+data/__pycache__/
+data/in/
+data/out/
+data/error/
+data/worker/
+models/
+ffmpeg/
