@@ -3,7 +3,7 @@
 
 [![PyPI - Python](https://img.shields.io/badge/python-v3.10+-blue.svg)](https://github.com/machinelearningZH/audio-transcription)
 
-<img src="_imgs/ui1.PNG" alt="editor" width="1000"/>
+<img src="_img/ui1.PNG" alt="editor" width="1000"/>
 
 <details>
 
