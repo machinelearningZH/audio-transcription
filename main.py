@@ -6,7 +6,7 @@ from functools import partial
 from nicegui import ui, events, app
 
 from util import time_estimate
-from config import ONLINE, ROOT, WINDOWS, STORAGE_SECRET
+from config import ONLINE, ROOT, WINDOWS, STORAGE_SECRET, SSL_CERTFILE, SSL_KEYFILE
 from help import help
 
 ONLINE = False
@@ -392,6 +392,6 @@ async def main_page():
 	
 if __name__ in {"__main__", "__mp_main__"}:
 	if ONLINE:
-		ui.run(port=443, reload=False, title="Transcribo", ssl_certfile="transcribo.ji.ktzh.ch.crt", ssl_keyfile="transcribo.ji.ktzh.ch.key", storage_secret=STORAGE_SECRET, favicon=ROOT + 'logo.png')
+		ui.run(port=443, reload=False, title="Transcribo", ssl_certfile=SSL_CERTFILE, ssl_keyfile=SSL_KEYFILE, storage_secret=STORAGE_SECRET, favicon=ROOT + 'logo.png')
 	else:
 		ui.run(title="Transcribo", host='127.0.0.1', port=8080, storage_secret=STORAGE_SECRET, favicon=ROOT + 'logo.png')
