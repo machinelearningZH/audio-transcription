@@ -18,8 +18,8 @@
 
 </details>
 
-## Usage
-
+## Set up
+### Installation
 - Make sure you have a compatible NVIDIA driver and CUDA Version installed: https://pytorch.org/
 - Install ffmpeg
     - Windows: https://phoenixnap.com/kb/ffmpeg-windows
@@ -39,7 +39,8 @@
 ```
     HF_AUTH_TOKEN = ...
 ```
-- Start the worker and frontend scripts
+### Run the application
+Start the worker and frontend scripts:
 - Linux
     - tmux new -s transcribe_worker
     - source venv/transcribo/bin/activate
@@ -74,6 +75,7 @@ This application offers advanced transcription capabilities for confidential aud
 - High-Quality Transcriptions: Exceptional transcription quality for English and local languages, with substantial accuracy for Swiss German.
 - Speaker Diarisation: Automatic identification and differentiation of speakers within the audio.
 - Multi-File Upload: Easily upload and manage multiple files for transcription.
+- Predefined vocabulary: Define the spelling of ambiguous words and names
 - Transcript Export Options: Export transcriptions in various formats:
     - Text file
     - SRT file (Subtitles for video accessibility)
