@@ -1,4 +1,6 @@
 ONLINE = False
+SSL_CERTFILE = path/to/certfile
+SSL_KEYFILE = path/to/keyfile
 ROOT = ''
 WINDOWS = True
 DEVICE = 'cuda'
