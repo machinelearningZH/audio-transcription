@@ -51,13 +51,45 @@
     - See `run_gui.bat`, `run_transcribo.bat` and `run_worker.bat`
 
 ### Config
-...
+|   | Description |
+|---|---|
+| ONLINE | Boolean. If TRUE, exposes the frontend in your network. You must provide a SSL cert and key file. See the [nicegui](https://nicegui.io/documentation/section_configuration_deployment) documentation for more information |
+| SSL_CERTFILE | String. The file path to the SSL cert file |
+| SSL_KEYFILE | String. The file path to the SSL key file |
+| STORAGE_SECRET | String. Secret key for cookie-based identification of users |
+| ROOT | String. path to main.py and worker.py |
+| WINDOWS | Boolean. Set TRUE if you are running this application on Windows. |
+| DEVICE | String. 'cuda' if you are using a GPU. 'cpu' otherwise. |
+| ADDITIONAL_SPEAKERS | Integer. Number of additional speakers provied in the editor |
+| BATCH_SIZE | Integer. Batch size for Whisper inference. Recommended bath size is 4 with 8GB VRAM and 32 with 16GB VRAM. |
+
 
 ## Project information
+This application offers advanced transcription capabilities for confidential audio and video files, utilizing the state-of-the-art Whisper v3 large model (non-quantized). You can expect top-notch transcription quality without any licensing or usage fees, even for Swiss German.
 
 ### What does the application do?
+- State-of-the-Art Transcription Quality: Powered by Whisper v3 large model, ensuring high accuracy and reliability.
+- Cost-Free Usage: No license or usage-related costs, making it an affordable solution for everyone.
+- High Performance: Transcribe up to 15 times faster than real-time, ensuring efficient processing.
+- High-Quality Transcriptions: Exceptional transcription quality for English and local languages, with substantial accuracy for Swiss German.
+- Speaker Diarisation: Automatic identification and differentiation of speakers within the audio.
+- Multi-File Upload: Easily upload and manage multiple files for transcription.
+- Transcript Export Options: Export transcriptions in various formats:
+    - Text file
+    - SRT file (Subtitles for video accessibility)
+    - Synchronized viewer with integrated audio or video
+- Integrated Editing: Edit transcriptions directly within the application, synchronously linked with the source video or audio. The editor is open-source and requires no installation.
+    - General Text Editing Functions: Standard text editing features for ease of use.
+    - Segments: Add or remove speech segments.
+    - Speaker Naming: Assign names to identified speakers for clarity.
+    - Power User Shortcuts: Keyboard shortcuts for enhanced navigation and control (start, stop, forward, backward, etc.).
+
 
 ### Hardware requirements
+- We strongly recommend using this application with a CUDA compatible graphics card. Transcription is extremly slow on CPU.
+    - https://developer.nvidia.com/cuda-gpus
+- If you are using a graphics card, you need at least 8GB VRAM. Performance is better with 16GB VRAM
+- 8GB RAM
 
 ## Project team
 
