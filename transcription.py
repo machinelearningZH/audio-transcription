@@ -3,6 +3,7 @@ import pandas as pd
 import time
 import whisperx
 from whisperx.audio import SAMPLE_RATE, log_mel_spectrogram, N_SAMPLES
+from config import BATCH_SIZE
 
 from data.const import data_leaks
 
@@ -40,10 +41,7 @@ def detect_language(audio, model):
 
 
 def transcribe(complete_name, model, diarize_model, device, num_speaker, add_language = False, online = True, hotwords = []):
-    if online:
-        batch_size = 32
-    else:
-        batch_size = 4
+
     torch.cuda.empty_cache()
     
     # convert audio given a file path. this function needs to change if we switch to a in-memory file.
@@ -52,7 +50,7 @@ def transcribe(complete_name, model, diarize_model, device, num_speaker, add_lan
     start = time.time()
     if len(hotwords) > 0:
         model.options = model.options._replace(prefix = ' '.join(hotwords))
-    result1 = model.transcribe(audio, batch_size=batch_size, language='de')
+    result1 = model.transcribe(audio, batch_size=BATCH_SIZE, language='de')
     if len(hotwords) > 0:
         model.options = model.options._replace(prefix = None)
     print(str(time.time()-start))
