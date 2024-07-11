@@ -381,9 +381,7 @@ async def main_page():
 						user_storage[user_id]['textarea'].value = app.storage.user[user_id + 'vocab']
 						expansion.open()
 				with ui.expansion('Informationen', icon='help_outline').classes('w-full no-wrap').style('width: min(40vw, 400px)'):
-					ui.label('Diese Prototyp-Applikation wird vom Statistischen Amt Kanton Zürich entwickelt.')
-					ui.label('Feedback und Wünsche sind jederzeit willkommen.')
-					ui.label('Kontakt: dominik.frefel@statistik.ji.zh.ch')
+					ui.label('Diese Prototyp-Applikation wurde vom Statistischen Amt Kanton Zürich entwickelt.')
 				ui.button('Anleitung öffnen', on_click=lambda: ui.open(help, new_tab=True)).props('no-caps')
 
 			# file view (on the right side of the page)
