@@ -132,10 +132,11 @@ if __name__ == "__main__":
                 continue
 
             exit_status = os.system(f'ffmpeg -y -i "{file_name}" -filter:v scale=320:-2 -af "lowpass=3000,highpass=200" "{file_name_out}"')
+            if exit_status == 256:
+                exit_status = os.system(f'ffmpeg -y -i "{file_name}" -c:v copy -af "lowpass=3000,highpass=200" "{file_name_out}"')
             if not exit_status == 0:
                 file_name_out = file_name
                 print('Exit status: ' + str(exit_status))
-
 
             try:
                 hotwords = []
