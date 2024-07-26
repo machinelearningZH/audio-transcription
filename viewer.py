@@ -76,7 +76,7 @@ def speaker_information(data):
 
     for idx, speaker in enumerate(speakers):
         if speaker is not 'unknown':
-            content += f'\t\t\t\t\t<span contenteditable="true" class="form-control" id="IN_SPEAKER_{str(idx).zfill(2)}" style="margin-top:4px;">Sprecher {speaker[-2:]}</span>\n'
+            content += f'\t\t\t\t\t<span contenteditable="true" class="form-control" id="IN_SPEAKER_{str(idx).zfill(2)}" style="margin-top:4px;">Person {speaker[-2:]}</span>\n'
 
     content += '\t\t\t\t<br><br><br><br><br></div>\n'
     content += '\t\t\t\t</div>\n'
@@ -134,14 +134,14 @@ def transcript(data, combine_speaker):
         for idx, speaker in enumerate(speakers):         
           if idx == speaker_idx:
             if speaker == 'unknown':
-                table_elements += f"\t\t\t\t\t\t<option value=\"{str(idx).zfill(2)}\" class=\"OUT_SPEAKER_{str(idx).zfill(2)}\" selected=\"selected\">Sprecher unbekannt</option>\n"
+                table_elements += f"\t\t\t\t\t\t<option value=\"{str(idx).zfill(2)}\" class=\"OUT_SPEAKER_{str(idx).zfill(2)}\" selected=\"selected\">Person unbekannt</option>\n"
             else:
-                table_elements += f"\t\t\t\t\t\t<option value=\"{str(idx).zfill(2)}\" class=\"OUT_SPEAKER_{str(idx).zfill(2)}\" selected=\"selected\">Sprecher {str(speaker[-2:]).zfill(2)}</option>\n"
+                table_elements += f"\t\t\t\t\t\t<option value=\"{str(idx).zfill(2)}\" class=\"OUT_SPEAKER_{str(idx).zfill(2)}\" selected=\"selected\">Person {str(speaker[-2:]).zfill(2)}</option>\n"
           else:
             if speaker == 'unknown':
-                table_elements += f"\t\t\t\t\t\t<option value=\"{str(idx).zfill(2)}\" class=\"OUT_SPEAKER_{str(idx).zfill(2)}\">Sprecher unbekannt</option>\n"
+                table_elements += f"\t\t\t\t\t\t<option value=\"{str(idx).zfill(2)}\" class=\"OUT_SPEAKER_{str(idx).zfill(2)}\">Person unbekannt</option>\n"
             else:
-                table_elements += f"\t\t\t\t\t\t<option value=\"{str(idx).zfill(2)}\" class=\"OUT_SPEAKER_{str(idx).zfill(2)}\">Sprecher {str(speaker[-2:]).zfill(2)}</option>\n"
+                table_elements += f"\t\t\t\t\t\t<option value=\"{str(idx).zfill(2)}\" class=\"OUT_SPEAKER_{str(idx).zfill(2)}\">Person {str(speaker[-2:]).zfill(2)}</option>\n"
         table_elements += "\t\t\t\t\t</select>\n"
         table_elements += '\t\t\t\t\t<span contenteditable="true">' + str(datetime.timedelta(seconds=round(segment['start'], 0))) + '</span>\n'
         if 'language' in segment:
