@@ -62,7 +62,7 @@ Start the worker and frontend scripts:
 | WINDOWS | Boolean. Set TRUE if you are running this application on Windows. |
 | DEVICE | String. 'cuda' if you are using a GPU. 'cpu' otherwise. |
 | ADDITIONAL_SPEAKERS | Integer. Number of additional speakers provied in the editor |
-| BATCH_SIZE | Integer. Batch size for Whisper inference. Recommended bath size is 4 with 8GB VRAM and 32 with 16GB VRAM. |
+| BATCH_SIZE | Integer. Batch size for Whisper inference. Recommended batch size is 4 with 8GB VRAM and 32 with 16GB VRAM. |
 
 
 ## Project information
