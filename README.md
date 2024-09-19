@@ -94,6 +94,14 @@ This application offers advanced transcription capabilities for confidential aud
 - 8GB RAM
 
 ## Project team
+This project is a collaborative effort of these people of the cantonal administration of Zurich:
 
+- **Stephan Walder** - [Leiter Digitale Transformation, Oberstaatsanwaltschaft Kanton Zürich](https://www.zh.ch/de/direktion-der-justiz-und-des-innern/staatsanwaltschaft/Oberstaatsanwaltschaft-des-Kantons-Zuerich.html)
+- **Dominik Frefel** - [Team Data, Statistisches Amt](https://www.zh.ch/de/direktion-der-justiz-und-des-innern/statistisches-amt/data.html)
+- **Patrick Arnecke** - [Team Data, Statistisches Amt](https://www.zh.ch/de/direktion-der-justiz-und-des-innern/statistisches-amt/data.html)
+  
+## Feedback and contributing
 ## Feedback and contributing
 We are interested to hear from you. Please share your feedback and let us know how you use the app in your institution. You can [write an email](mailto:datashop@statistik.zh.ch) or share your ideas by opening an issue or a pull requests.
+
+Please note that we use [Ruff](https://docs.astral.sh/ruff/) for linting and code formatting with default settings.
