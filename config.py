@@ -1,9 +1,9 @@
 ONLINE = False
-SSL_CERTFILE = path/to/certfile
-SSL_KEYFILE = path/to/keyfile
-ROOT = ''
+SSL_CERTFILE = path / to / certfile
+SSL_KEYFILE = path / to / keyfile
+ROOT = ""
 WINDOWS = True
-DEVICE = 'cuda'
+DEVICE = "cuda"
 ADDITIONAL_SPEAKERS = 4
-STORAGE_SECRET = 'this is my secret'
+STORAGE_SECRET = "this is my secret"
 BATCH_SIZE = 4
