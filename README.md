@@ -33,7 +33,7 @@
     - pip install --force-reinstall onnxruntime-gpu
 - Create a Huggingface access token
     - Accept [pyannote/segmentation-3.0](https://hf.co/pyannote/segmentation-3.0) user conditions
-    - Accept [pyannote/speaker-diarization-3.0](https://hf.co/pyannote-speaker-diarization-3.0) user conditions
+    - Accept [pyannote/speaker-diarization-3.0](https://huggingface.co/pyannote/speaker-diarization) user conditions
     - Create access token at [hf.co/settings/tokens](https://hf.co/settings/tokens).
 - Create a `.env` file and input your access token:
 ```
