@@ -1,4 +1,6 @@
-import os, os.path, shutil
+import os
+import os.path
+import shutil
 import time
 import fnmatch
 import types
@@ -95,7 +97,7 @@ if __name__ == "__main__":
             file_name_txt = ROOT + "data/out/" + user_id + "/" + file + ".txt"
             file_name_srt = ROOT + "data/out/" + user_id + "/" + file + ".srt"
 
-            # skip all files that have already been transcribed.
+            # Skip all files that have already been transcribed.
             if (
                 not isfile(file_name) or isfile(file_name_viewer)
             ) or file == "hotwords.txt":
@@ -107,18 +109,18 @@ if __name__ == "__main__":
                 ):
                     shutil.rmtree(ROOT + "data/worker/" + user_id)
             except:
-                # we probably don't have enough permission in ROOT/data/
+                # We probably don't have enough permission in "ROOT/data/".
                 print("Could not remove folder: " + ROOT + "data/worker/" + user_id)
 
             try:
                 if not os.path.exists(ROOT + "data/out/" + user_id):
                     os.makedirs(ROOT + "data/out/" + user_id)
             except:
-                # we probably don't have enough permission in ROOT/data/
+                # We probably don't have enough permission in "ROOT/data/".
                 print("Could not create output folder for user_id: " + user_id)
                 continue
 
-            # estimate run time: length of audio divided by 13
+            # Estimate run time: length of audio divided by 13.
             try:
                 time.sleep(2)
                 estimated_time, run_time = time_estimate(file_name, ONLINE)
@@ -148,10 +150,10 @@ if __name__ == "__main__":
                 with open(progress_file_name, "w") as f:
                     f.write("")
             except:
-                # we probably don't have enough permission in ROOT/data/
+                # We probably don't have enough permission in "ROOT/data/".
                 print("Could not create progress_file")
 
-            # the file most likely does not have a (valid) audio stream
+            # The file most likely does not have a (valid) audio stream.
             if not ffmpeg.probe(file_name, select_streams="a")["streams"]:
                 report_error("Die Tonspur der Datei konnte nicht gelesen werden")
                 continue

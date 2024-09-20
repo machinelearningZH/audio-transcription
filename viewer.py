@@ -3,9 +3,9 @@ import datetime
 from config import ADDITIONAL_SPEAKERS
 
 
-# function to generate the viewer html-file.
-# input data is the segments of the output of whisperx.assign_word_speakers: whisperx.assign_word_speakers(diarize_df, result2)['segments']
-# file_path is the path to the audio/video file
+# Function to generate the viewer html-file.
+# Input data is the segments of the output of whisperx.assign_word_speakers: whisperx.assign_word_speakers(diarize_df, result2)['segments']
+# File_path is the path to the audio/video file.
 def create_viewer(data, file_path, encode_base64, combine_speaker, root):
     for segment in data:
         if "speaker" not in segment:

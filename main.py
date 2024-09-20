@@ -1,4 +1,9 @@
-import time, os, shutil, zipfile, datetime, base64
+import time
+import os
+import shutil
+import zipfile
+import datetime
+import base64
 from os import listdir
 from os.path import isfile, join
 from functools import partial
@@ -18,7 +23,7 @@ if WINDOWS:
 user_storage = {}
 
 
-# read in all files of the user and set the file status if known
+# Read in all files of the user and set the file status if known.
 def read_files(user_id):
     user_storage[user_id]["file_list"] = []
     if os.path.exists(ROOT + "data/in/" + user_id):
@@ -82,7 +87,7 @@ def read_files(user_id):
     user_storage[user_id]["file_list"] = sorted(user_storage[user_id]["file_list"])
 
 
-# save uploaded file to disk
+# Save the uploaded file to disk.
 async def handle_upload(e: events.UploadEventArguments, user_id):
     if not os.path.exists(ROOT + "data/in/" + user_id):
         os.makedirs(ROOT + "data/in/" + user_id)
@@ -98,7 +103,7 @@ async def handle_upload(e: events.UploadEventArguments, user_id):
         if os.path.exists(join(ROOT + "data/error/" + user_id, file_name + ".txt")):
             os.remove(join(ROOT + "data/error/" + user_id, file_name + ".txt"))
 
-    # if the file name already exists, append a number of up to 10000 to the name, if someone uploads 10001 copies of the same file, it will ignore the file
+    # If the file name already exists, append a number of up to 10000 to the name, if someone uploads 10001 copies of the same file, it will ignore the file.
     for i in range(10000):
         if isfile(ROOT + "data/in/" + user_id + "/" + file_name):
             file_name = (
@@ -126,6 +131,7 @@ def handle_reject(e: events.GenericEventArguments):
     )
 
 
+# After a file was added, refresh the gui.
 def handle_added(
     e: events.GenericEventArguments, user_id, upload_element, refresh_file_view
 ):
@@ -133,6 +139,7 @@ def handle_added(
     refresh_file_view(user_id=user_id, refresh_queue=True, refresh_results=False)
 
 
+# Add offline functions to the editor before downloading.
 def prepare_download(file_name, user_id):
     full_file_name = join(ROOT + "data/out/" + user_id, file_name + ".html")
 
@@ -265,7 +272,7 @@ def delete(file_name, user_id, refresh_file_view):
     refresh_file_view(user_id=user_id, refresh_queue=True, refresh_results=True)
 
 
-# periodically check if a file is being transcribed and calulate its estimated progress
+# Periodically check if a file is being transcribed and calulate its estimated progress.
 def listen(user_id, refresh_file_view):
     user_path = ROOT + "data/worker/" + user_id + "/"
 
@@ -323,6 +330,7 @@ def update_hotwords(user_id):
         app.storage.user[user_id + "vocab"] = user_storage[user_id]["textarea"].value
 
 
+# Prepare and open the editor for online editing.
 @ui.page("/editor")
 async def editor():
     async def handle_save(full_file_name):
@@ -499,7 +507,7 @@ async def main_page():
     def display_files(user_id):
         read_files(user_id)
 
-        # display progress and buttons for each file
+        # Display progress and buttons for each file.
         with ui.card().classes("border p-4").style("width: min(60vw, 700px);"):
             display_queue(user_id=user_id)
             display_results(user_id=user_id)
@@ -524,14 +532,14 @@ async def main_page():
 
     read_files(user_id)
 
-    # Create the UI
+    # Create the GUI.
     with ui.column():
         with ui.header(elevated=True).style("background-color: #0070b4;").props(
             "fit=scale-down"
         ).classes("q-pa-xs-xs"):
             ui.image(ROOT + "banner.png").style("height: 90px; width: 443px;")
         with ui.row():
-            # left side of the page. upload element and information
+            # Left side of the page. Upload element and information.
             with ui.column():
                 with ui.card().classes("border p-4"):
                     with ui.card().style("width: min(40vw, 400px)"):
@@ -560,7 +568,7 @@ async def main_page():
                             ),
                         )
 
-                label = ui.label("")
+                ui.label("")
                 ui.timer(
                     2,
                     partial(
@@ -593,7 +601,7 @@ async def main_page():
                     "Anleitung öffnen", on_click=lambda: ui.open(help, new_tab=True)
                 ).props("no-caps")
 
-            # file view (on the right side of the page)
+            # Create the file view (on the right side of the page).
             display_files(user_id=user_id)
 
 

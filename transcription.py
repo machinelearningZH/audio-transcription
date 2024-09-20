@@ -55,7 +55,7 @@ def transcribe(
 ):
     torch.cuda.empty_cache()
 
-    # convert audio given a file path. this function needs to change if we switch to a in-memory file.
+    # Convert audio given a file path.
     audio = whisperx.load_audio(complete_name)
 
     start = time.time()
@@ -66,7 +66,7 @@ def transcribe(
         model.options = model.options._replace(prefix=None)
     print(str(time.time() - start))
 
-    # align whisper output
+    # Align whisper output.
     model_a, metadata = whisperx.load_align_model(
         language_code=result1["language"], device=device
     )
@@ -87,9 +87,7 @@ def transcribe(
             language, language_probability = detect_language(segment_audio, model)
             segment["language"] = language if language_probability > 0.85 else "de"
 
-    # diarize and assign speaker labels
-    # currently we make use of my hugginface authentication token.
-    # in the future we want to find a better solution (perhaps it is possible to use the diarization and segmentation models locally).
+    # Diarize and assign speaker labels.
     audio_data = {
         "waveform": torch.from_numpy(audio[None, :]),
         "sample_rate": SAMPLE_RATE,
@@ -106,7 +104,7 @@ def transcribe(
 
     torch.cuda.empty_cache()
 
-    # text cleanup
+    # Text cleanup.
     cleaned_segments = []
     for segment in result3["segments"]:
         if result1["language"] in data_leaks:

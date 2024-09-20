@@ -4,7 +4,6 @@ from config import ROOT, ONLINE
 
 @ui.page("/help")
 def help():
-    # todo, upload mehrere dateien, unterstützte formate
     with ui.column():
         with ui.header(elevated=True).style("background-color: #0070b4;").props(
             "fit=scale-down"
