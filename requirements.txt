@@ -11,3 +11,4 @@ torch==2.1.1+cu118
 torch==2.1.1
 whisperx==3.1.1
 speechbrain==0.5.16
+numpy==1.26.3
