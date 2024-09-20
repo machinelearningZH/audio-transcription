@@ -43,7 +43,7 @@
 Start the worker and frontend scripts:
 - Linux
     - `tmux new -s transcribe_worker`
-    - `source venv/transcribo/bin/activate`
+    - `conda activate transcribo`
     - `python worker.py`
     - `tmux new -s transcribe_frontend`
     - `source venv/transcribo/bin/activate`
