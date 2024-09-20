@@ -42,12 +42,12 @@
 ### Run the application
 Start the worker and frontend scripts:
 - Linux
-    - tmux new -s transcribe_worker
-    - source venv/transcribo/bin/activate
-    - python worker.py
-    - tmux new -s transcribe_frontend
-    - source venv/transcribo/bin/activate
-    - python main.py
+    - `tmux new -s transcribe_worker`
+    - `source venv/transcribo/bin/activate`
+    - `python worker.py`
+    - `tmux new -s transcribe_frontend`
+    - `source venv/transcribo/bin/activate`
+    - `python main.py`
 - Windows
     - See `run_gui.bat`, `run_transcribo.bat` and `run_worker.bat`
 
