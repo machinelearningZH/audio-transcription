@@ -27,8 +27,10 @@
 - Create a new Python environment, e.g.: `conda create --name transcribo python=3.10`
 - Activate your new environment: `conda activate transcribo`
 - Clone this repo.
-- Install packages: `pip install -r requirements.txt`
-- Make sure, that the onnxruntime-gpu package is installed. Otherwise uninstall onnxruntime and install onnxruntime-gpu
+- Install packages:
+    - `conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=11.8 -c pytorch -c nvidia`  
+    - `pip install -r requirements.txt`
+- Make sure, that the onnxruntime-gpu package is installed. Otherwise uninstall onnxruntime and install onnxruntime-gpu (if in doubt, just reinstall onnxruntime-gpu)
     - pip uninstall onnxruntime
     - pip install --force-reinstall onnxruntime-gpu
 - Create a Huggingface access token
