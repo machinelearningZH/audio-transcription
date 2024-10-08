@@ -34,7 +34,7 @@
 - Clone this repo.
 - Install packages:
     - Check the installed cuda version: `nvcc --version`
-    - Run the following command with your specific cuda version. This example is for cuda version 11.8, change this number if you have a different version installed.
+    - Run the following command with your specific cuda version. This example is for cuda version 11.8, edit the command for your installed version.
     - `conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=11.8 -c pytorch -c nvidia`
     - `pip install -r requirements.txt`
 - Make sure, that the onnxruntime-gpu package is installed. Otherwise uninstall onnxruntime and install onnxruntime-gpu (if in doubt, just reinstall onnxruntime-gpu)
