@@ -28,7 +28,8 @@
 - Activate your new environment: `conda activate transcribo`
 - Clone this repo.
 - Install packages:
-    - `conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=11.8 -c pytorch -c nvidia`  
+    - `conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=11.8 -c pytorch -c nvidia`
+        - `pytorch-cuda=11.8` is depending on the installed cuda version. use `nvcc --version` to check the installed version.
     - `pip install -r requirements.txt`
 - Make sure, that the onnxruntime-gpu package is installed. Otherwise uninstall onnxruntime and install onnxruntime-gpu (if in doubt, just reinstall onnxruntime-gpu)
     - pip uninstall onnxruntime
