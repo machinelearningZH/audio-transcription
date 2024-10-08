@@ -607,7 +607,7 @@ async def main_page():
 
 if __name__ in {"__main__", "__mp_main__"}:
     if ONLINE:
-	ui.run(port=8080, title="TranscriboZH", storage_secret=STORAGE_SECRET, favicon=ROOT + "logo.png")
+		ui.run(port=8080, title="TranscriboZH", storage_secret=STORAGE_SECRET, favicon=ROOT + "logo.png")
         #ui.run(port=443, reload=False, title="TranscriboZH", ssl_certfile=SSL_CERTFILE, ssl_keyfile=SSL_KEYFILE, storage_secret=STORAGE_SECRET, favicon=ROOT + "logo.png")
     else:
         ui.run(
