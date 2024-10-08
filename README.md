@@ -24,6 +24,11 @@
 - Install ffmpeg
     - Windows: https://phoenixnap.com/kb/ffmpeg-windows
     - Linux: `sudo apt install ffmpeg`
+- Install conda
+    - `mkdir -p ~/miniconda3`
+    - `wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh`
+    - `bash ~/miniconda3/miniconda.sh`
+    - `rm ~/miniconda3/miniconda.sh`
 - Create a new Python environment, e.g.: `conda create --name transcribo python=3.10`
 - Activate your new environment: `conda activate transcribo`
 - Clone this repo.
