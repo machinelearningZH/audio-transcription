@@ -43,7 +43,7 @@
     - `pip install --force-reinstall onnxruntime-gpu`
     - `pip install --force-reinstall -v "numpy==1.26.3"`
 - Create a Huggingface access token
-    - Accept [pyannote/segmentation-3.0](https://hf.co/pyannote/segmentation-3.0) user conditions
+    - Accept [pyannote/segmentation](https://huggingface.co/pyannote/segmentation)) user conditions
     - Accept [pyannote/speaker-diarization-3.0](https://huggingface.co/pyannote/speaker-diarization) user conditions
     - Create access token at [hf.co/settings/tokens](https://hf.co/settings/tokens) with read and write permissions.
 - Create a `.env` file and input your access token:
