@@ -25,7 +25,7 @@
     - Windows: https://phoenixnap.com/kb/ffmpeg-windows
     - Linux: `sudo apt install ffmpeg`
 - Install conda
-    - `mkdir -p ~/miniconda3`
+    - `mkdir -p ~/miniconda3 -u`
     - `wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh`
     - `bash ~/miniconda3/miniconda.sh`
     - `rm ~/miniconda3/miniconda.sh`
