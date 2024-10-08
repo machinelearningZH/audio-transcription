@@ -32,8 +32,9 @@
         - `pytorch-cuda=11.8` is depending on the installed cuda version. use `nvcc --version` to check the installed version.
     - `pip install -r requirements.txt`
 - Make sure, that the onnxruntime-gpu package is installed. Otherwise uninstall onnxruntime and install onnxruntime-gpu (if in doubt, just reinstall onnxruntime-gpu)
-    - pip uninstall onnxruntime
-    - pip install --force-reinstall onnxruntime-gpu
+    - `pip uninstall onnxruntime`
+    - `pip install --force-reinstall onnxruntime-gpu`
+    - `pip install --force-reinstall -v "numpy==1.26.3"`
 - Create a Huggingface access token
     - Accept [pyannote/segmentation-3.0](https://hf.co/pyannote/segmentation-3.0) user conditions
     - Accept [pyannote/speaker-diarization-3.0](https://huggingface.co/pyannote/speaker-diarization) user conditions
