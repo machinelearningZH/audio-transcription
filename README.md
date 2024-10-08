@@ -29,6 +29,7 @@
     - `wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh`
     - `bash ~/miniconda3/miniconda.sh -u`
     - `rm ~/miniconda3/miniconda.sh`
+    - Exit shell and open new shell.
 - Create a new Python environment, e.g.: `conda create --name transcribo python=3.10`
 - Activate your new environment: `conda activate transcribo`
 - Clone this repo.
