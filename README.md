@@ -49,7 +49,7 @@ Start the worker and frontend scripts:
     - `conda activate transcribo`
     - `python worker.py`
     - `tmux new -s transcribe_frontend`
-    - `source venv/transcribo/bin/activate`
+    - `conda activate transcribo`
     - `python main.py`
 - Windows
     - See `run_gui.bat`, `run_transcribo.bat` and `run_worker.bat`
