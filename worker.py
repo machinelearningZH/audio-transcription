@@ -73,7 +73,9 @@ if __name__ == "__main__":
     for directory in ["data/in/", "data/out/", "data/error/", "data/worker/"]:
         if not os.path.exists(ROOT + directory):
             os.makedirs(ROOT + directory)
-
+            
+    print('''This transcription software incorporates the open-source model Whisper Large v3. Users are solely responsible for ensuring that their use of this software and the underlying model complies with all applicable local, national, and international laws and regulations.
+Please be aware that if you are located within the European Union, you must comply with the EU Artificial Intelligence Act (EU AI Act) and any other relevant legislation governing the use of AI technologies. By using this software, you acknowledge that you understand and agree to abide by all such laws and regulations.''')
     print("worker ready")
     while True:
         try:
