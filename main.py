@@ -14,8 +14,6 @@ from util import time_estimate
 from config import ONLINE, ROOT, WINDOWS, STORAGE_SECRET, SSL_CERTFILE, SSL_KEYFILE
 from help import help
 
-ONLINE = False
-
 if WINDOWS:
     os.environ["PATH"] += os.pathsep + "ffmpeg/bin"
     os.environ["PATH"] += os.pathsep + "ffmpeg"
