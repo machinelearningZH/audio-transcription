@@ -56,6 +56,7 @@ Start the worker and frontend scripts:
     - `tmux new -s transcribe_worker`
     - `conda activate transcribo`
     - `python worker.py`
+    - Exit tmux session with `CTRL-B` and `D`.
     - `tmux new -s transcribe_frontend`
     - `conda activate transcribo`
     - `python main.py`
