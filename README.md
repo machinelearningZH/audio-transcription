@@ -117,3 +117,7 @@ This project is a collaborative effort of these people of the cantonal administr
 We are interested to hear from you. Please share your feedback and let us know how you use the app in your institution. You can [write an email](mailto:datashop@statistik.zh.ch) or share your ideas by opening an issue or a pull requests.
 
 Please note that we use [Ruff](https://docs.astral.sh/ruff/) for linting and code formatting with default settings.
+
+## Disclaimer
+This transcription software incorporates the open-source model Whisper Large v3. Users are solely responsible for ensuring that their use of this software and the underlying model complies with all applicable local, national, and international laws and regulations.
+Please be aware that if you are located within the European Union, you must comply with the EU Artificial Intelligence Act (EU AI Act) and any other relevant legislation governing the use of AI technologies. By using this software, you acknowledge that you understand and agree to abide by all such laws and regulations.
