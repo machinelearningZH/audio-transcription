@@ -1,4 +1,4 @@
-ONLINE = False
+ONLINE = True
 SSL_CERTFILE = "path/to/certfile"
 SSL_KEYFILE = "path/to/keyfile"
 ROOT = ""
