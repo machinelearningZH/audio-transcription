@@ -1,4 +1,4 @@
-# https://github.com/openai/whisper/discussions/928
+# Source: https://github.com/openai/whisper/discussions/928
 
 data_leaks = {
   "en": [
