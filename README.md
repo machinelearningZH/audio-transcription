@@ -11,13 +11,14 @@
 
 - [Setup Instructions](#setup-instructions)
     - [Installation](#installation)
-    - [Run the application](#run-the-application)
-    - [Config](#config)
-- [Project information](#project-information)
-    - [What does the app do?](#what-does-the-app-do)
+    - [Running the Application](#running-the-application)
+    - [Configuration](#configuration)
+- [Project Information](#project-information)
+    - [What does the application do?](#what-does-the-application-do)
     - [Hardware requirements](#hardware-requirements)
-- [Project Team](#project-team)
-- [Contributing](#feedback-and-contributing)
+- [Project team](#project-team)
+- [Feedback and Contributions](#feedback-and-contributions)
+- [Disclaimer](#disclaimer)
 
 </details>
 
