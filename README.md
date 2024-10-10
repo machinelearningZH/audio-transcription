@@ -9,18 +9,21 @@
 
 <summary>Contents</summary>
 
-- [Usage](#usage)
+- [Setup Instructions](#setup-instructions)
+    - [Installation](#installation)
+    - [Run the application](#run-the-application)
+    - [Config](#config)
 - [Project information](#project-information)
     - [What does the app do?](#what-does-the-app-do)
     - [Hardware requirements](#hardware-requirements)
-- [Project team](#project-team)
+- [Project Team](#project-team)
 - [Contributing](#feedback-and-contributing)
 
 </details>
 
-## Set up
+## Setup Instructions
 ### Installation
-- Make sure you have a compatible NVIDIA driver and CUDA Version installed: https://pytorch.org/
+- Ensure you have a compatible NVIDIA driver and CUDA Version installed: https://pytorch.org/
 - Install ffmpeg
     - Windows: https://phoenixnap.com/kb/ffmpeg-windows
     - Linux: `sudo apt install ffmpeg`
@@ -46,11 +49,11 @@
     - Accept [pyannote/segmentation](https://huggingface.co/pyannote/segmentation)) user conditions
     - Accept [pyannote/speaker-diarization-3.0](https://huggingface.co/pyannote/speaker-diarization) user conditions
     - Create access token at [hf.co/settings/tokens](https://hf.co/settings/tokens) with read and write permissions.
-- Create a `.env` file and input your access token:
+- Create a `.env` file and add your access token:
 ```
     HF_AUTH_TOKEN = ...
 ```
-### Run the application
+### Running the Application
 Start the worker and frontend scripts:
 - Linux
     - `tmux new -s transcribe_worker`
@@ -64,7 +67,7 @@ Start the worker and frontend scripts:
 - Windows
     - See `run_gui.bat`, `run_transcribo.bat` and `run_worker.bat`
 
-### Config
+### Configuration
 |   | Description |
 |---|---|
 | ONLINE | Boolean. If TRUE, exposes the frontend in your network. You must provide a SSL cert and key file. See the [nicegui](https://nicegui.io/documentation/section_configuration_deployment) documentation for more information |
@@ -78,20 +81,20 @@ Start the worker and frontend scripts:
 | BATCH_SIZE | Integer. Batch size for Whisper inference. Recommended batch size is 4 with 8GB VRAM and 32 with 16GB VRAM. |
 
 
-## Project information
-This application offers advanced transcription capabilities for confidential audio and video files, utilizing the state-of-the-art Whisper v3 large model (non-quantized). You can expect top-notch transcription quality without any licensing or usage fees, even for Swiss German.
+## Project Information
+This application provides advanced transcription capabilities for confidential audio and video files using the state-of-the-art Whisper v3 large model (non-quantized). It offers top-tier transcription quality without licensing or usage fees, even for Swiss German.
 
 ### What does the application do?
-- State-of-the-Art Transcription Quality: Powered by Whisper v3 large model, ensuring high accuracy and reliability.
-- Cost-Free Usage: No license or usage-related costs, making it an affordable solution for everyone.
+- State-of-the-Art Transcription: Powered by Whisper v3 large model, ensuring high accuracy and reliability.
+- Cost-Free: No license or usage-related costs, making it an affordable solution for everyone.
 - High Performance: Transcribe up to 15 times faster than real-time, ensuring efficient processing.
 - High-Quality Transcriptions: Exceptional transcription quality for English and local languages, with substantial accuracy for Swiss German.
 - Speaker Diarisation: Automatic identification and differentiation of speakers within the audio.
 - Multi-File Upload: Easily upload and manage multiple files for transcription.
-- Predefined vocabulary: Define the spelling of ambiguous words and names
+- Predefined vocabulary: Define the spelling of ambiguous words and names.
 - Transcript Export Options: Export transcriptions in various formats:
     - Text file
-    - SRT file (Subtitles for video accessibility)
+    - SRT file (for video subtitles)
     - Synchronized viewer with integrated audio or video
 - Integrated Editing: Edit transcriptions directly within the application, synchronously linked with the source video or audio. The editor is open-source and requires no installation.
     - General Text Editing Functions: Standard text editing features for ease of use.
@@ -101,9 +104,9 @@ This application offers advanced transcription capabilities for confidential aud
 
 
 ### Hardware requirements
-- We strongly recommend using this application with a CUDA compatible graphics card. Transcription is extremly slow on CPU.
+- We strongly recommend using a CUDA-compatible graphics card, as transcription on a CPU is extremely slow.
     - https://developer.nvidia.com/cuda-gpus
-- If you are using a graphics card, you need at least 8GB VRAM. Performance is better with 16GB VRAM
+- If you are using a graphics card, you need at least 8GB VRAM. Performance is better with 16GB VRAM.
 - 8GB RAM
 
 ## Project team
@@ -113,10 +116,10 @@ This project is a collaborative effort of these people of the cantonal administr
 - **Dominik Frefel** - [Team Data, Statistisches Amt](https://www.zh.ch/de/direktion-der-justiz-und-des-innern/statistisches-amt/data.html)
 - **Patrick Arnecke** - [Team Data, Statistisches Amt](https://www.zh.ch/de/direktion-der-justiz-und-des-innern/statistisches-amt/data.html)
   
-## Feedback and contributing
-We are interested to hear from you. Please share your feedback and let us know how you use the app in your institution. You can [write an email](mailto:datashop@statistik.zh.ch) or share your ideas by opening an issue or a pull requests.
+## Feedback and Contributions
+Please share your feedback and let us know how you use the app in your institution. You can [write an email](mailto:datashop@statistik.zh.ch) or share your ideas by opening an issue or a pull requests.
 
-Please note that we use [Ruff](https://docs.astral.sh/ruff/) for linting and code formatting with default settings.
+Please note, we use [Ruff](https://docs.astral.sh/ruff/) for linting and code formatting with default settings.
 
 ## Disclaimer
 This transcription software incorporates the open-source model Whisper Large v3. Users are solely responsible for ensuring that their use of this software and the underlying model complies with all applicable local, national, and international laws and regulations.
