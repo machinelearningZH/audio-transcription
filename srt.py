@@ -6,8 +6,8 @@ def create_srt(data):
     max_length = 60
     hard_max_length = 80
 
-    # try to split segments into sub-segments of max. max_length characters.
-    # segments shorter than max_length characters are not changed
+    # Try to split segments into sub-segments of max. max_length characters.
+    # Segments shorter than max_length characters are not changed.
     for segment in data:
         segment["text"] = segment["text"]
         text = segment["text"].strip()
@@ -22,7 +22,7 @@ def create_srt(data):
             while word_index < len(segment["words"]):
                 new_segment = {"start": -1, "end": -1, "words": [], "text": ""}
                 while word_index < len(segment["words"]):
-                    # add a word to the current new_segment
+                    # Add a word to the current new_segment.
                     if (
                         new_segment["start"] == -1
                         and "start" in segment["words"][word_index]
@@ -36,18 +36,18 @@ def create_srt(data):
                     )
                     new_segment["text"] += segment["words"][word_index]["word"] + " "
 
-                    # check if word_index is a good position to start a new segment
+                    # Check if word_index is a good position to start a new segment.
                     word_index += 1
                     current_length = len(new_segment["text"].replace(" ", ""))
-                    # if hard_max_length will be reached after the next word, start a new segment
+                    # If hard_max_length will be reached after the next word, start a new segment.
                     if word_index >= len(segment["words"]) or hard_max_length < (
                         current_length + len(segment["words"][word_index]["word"])
                     ):
                         break
-                    # do not start a new segment towards the end
+                    # Do not start a new segment towards the end.
                     if word_index + 2 > len(segment["words"]):
                         continue
-                    # allow early starting of a new segment if the current word contains ','/'»' or the next word contains 'und'/'oder'/'«'
+                    # Allow early starting of a new segment if the current word contains ','/'»' or the next word contains 'und'/'oder'/'«'.
                     if current_length > target_length * 0.5 and (
                         "," in segment["words"][word_index - 1]["word"]
                         or "«" in segment["words"][word_index]["word"]
@@ -63,7 +63,7 @@ def create_srt(data):
                         break
                 data_srt.append(copy.deepcopy(new_segment))
 
-    # try to increase display times of segments to 13 characters per second if possible
+    # Try to increase display times of segments to 13 characters per second if possible.
     for i, segment in enumerate(data_srt):
         length = len(segment["text"].replace(" ", ""))
         display_time = segment["end"] - segment["start"]
