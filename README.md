@@ -1,4 +1,4 @@
-# Audio Transcription Tool "TranscriboZH"
+# Audio Transcription Tool «TranscriboZH»
 **Transcribe any audio or video file. Edit and view your transcripts in a standalone HTML editor.**
 
 ![GitHub License](https://img.shields.io/github/license/machinelearningzh/audio-transcription)
@@ -6,7 +6,7 @@
 [![GitHub Stars](https://img.shields.io/github/stars/machinelearningZH/audio-transcription.svg)](https://github.com/machinelearningZH/audio-transcription/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/machinelearningZH/audio-transcription.svg)](https://github.com/machinelearningZH/audio-transcription/issues)
 [![GitHub Issues](https://img.shields.io/github/issues-pr/machinelearningZH/audio-transcription.svg)](https://img.shields.io/github/issues-pr/machinelearningZH/audio-transcription) 
-[![Current Version](https://img.shields.io/badge/version-0.3.0-green.svg)](https://github.com/machinelearningZH/audio-transcription)
+[![Current Version](https://img.shields.io/badge/version-1.0-green.svg)](https://github.com/machinelearningZH/audio-transcription)
 <a href="https://github.com/astral-sh/ruff"><img alt="linting - Ruff" class="off-glb" loading="lazy" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json"></a>
 
 
