@@ -12,3 +12,5 @@ speechbrain==0.5.16
 numpy==1.26.3
 pydub==0.25.1
 tiktoken==0.9.0
+fastapi>=0.95.0
+python-multipart>=0.0.6

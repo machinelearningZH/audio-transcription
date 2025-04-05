@@ -129,6 +129,87 @@ Start the worker and frontend scripts:
 | ADDITIONAL_SPEAKERS | Integer. Number of additional speakers provied in the editor |
 | BATCH_SIZE | Integer. Batch size for Whisper inference. Recommended batch size is 4 with 8GB VRAM and 32 with 16GB VRAM. |
 | SUMMARIZATION | Boolean. If True, enables summarization functionality. See [Summarization](#summarization) for more details. |
+| API_KEY | String. Optional API key for authenticating API requests. If not set, API access is unrestricted. |
+
+## API Usage
+TranscriboZH provides a REST API that allows you to programmatically upload files for transcription, check their status, and download the results. This is useful for integrating transcription capabilities into your own applications.
+
+### Authentication
+If you've configured an API key in your `.env` file, all API requests must include this key. If no API key is configured, the API is accessible without authentication.
+
+### API Endpoints
+
+#### Upload Files for Transcription
+```
+POST /api/transcribe
+```
+
+**Parameters:**
+- `file`: One audio/video files (multipart/form-data)
+- `hotwords`: Optional custom vocabulary (form field)
+- `api_key`: Your API key if configured (form field)
+
+**Response:**
+```json
+{
+  "job_id": "api_12345abcdef",
+  "message": "Files uploaded successfully. Use GET /api/status/api_12345abcdef to check status."
+}
+```
+
+#### Check Transcription Status
+```
+GET /api/status/{job_id}
+```
+
+**Response:**
+```json
+  {
+    "file_name": "recording.mp4",
+    "status": "processing",
+    "progress": 45.2,
+    "estimated_time_left": 120
+  }
+```
+
+Possible status values: `queued`, `processing`, `completed`, `error`
+
+#### Download Transcription Results
+```
+GET /api/download/{job_id}/{file_name}?format={format}
+```
+
+**Parameters:**
+- `format`: Optional output format (`html`, `srt`, or `txt`). Default is `html`.
+
+**Response:**
+- For HTML and JSON formats: JSON object with content field
+- For SRT and TXT formats: Plain text content
+
+### Example Usage with cURL
+
+**Upload a file:**
+```bash
+curl -X POST "http://localhost:8080/api/transcribe" \
+  -F "files=@/path/to/recording.mp4" \
+  -F "hotwords=Zürich\nUster" \
+  -F "api_key=your_api_key"
+```
+
+**Check status:**
+```bash
+curl "http://localhost:8080/api/status/api_12345abcdef"
+```
+
+**Download results (HTML):**
+```bash
+curl "http://localhost:8080/api/download/api_12345abcdef/recording.mp4.html"
+```
+
+**Download results (TXT):**
+```bash
+curl "http://localhost:8080/api/download/api_12345abcdef/recording.mp4.txt"
+```
 
 ## Summarization
 This is only recommended if you have experience running a local language model. To use the summarization functionality, you must install [LLama-cpp-python](https://github.com/abetlen/llama-cpp-python) and run a local language model. Setting up the model requires technical expertise, as you will need to adjust the code and parameters based on your hardware and system configuration.
