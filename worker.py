@@ -69,7 +69,7 @@ def oldest_files(folder):
 
 
 def transcribe_file(
-    file_name, multi_mode=False, multi_mode_track=None, audio_files=None, language="de"
+    file_name, multi_mode=False, num_speakers_detected=None, audio_files=None, language="de"
 ):
     data = None
     estimated_time = 0
@@ -180,7 +180,7 @@ def transcribe_file(
                 False if DEVICE == "mps" else True
             ),  # on MPS is rather slow and unreliable, but you can try with setting this to true
             hotwords=hotwords,
-            multi_mode_track=multi_mode_track,
+            num_speakers_detected=num_speakers_detected,
             language=language,
         )
     except Exception as e:
@@ -362,17 +362,18 @@ if __name__ == "__main__":
 
                     isolate_voices([join(root, filename) for filename in audio_files])
 
+                    num_speakers_detected = 0
                     # Transcribe each file
-                    for track, filename in enumerate(audio_files):
+                    for filename in audio_files:
                         file_path = join(root, filename)
                         file_parts.append(f'-i "{file_path}"')
                         data_part, _, _ = transcribe_file(
                             file_path,
                             multi_mode=True,
-                            multi_mode_track=track,
+                            num_speakers_detected=num_speakers_detected,
                             language=language,
                         )
-
+                        num_speakers_detected += len(set([segment['speaker'] for segment in data_part]))
                         data_parts.append(data_part)
 
                     # Merge data
