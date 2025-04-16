@@ -9,12 +9,15 @@ from os.path import isfile, join
 from functools import partial
 from dotenv import load_dotenv
 from nicegui import ui, events, app
+from fastapi import FastAPI, UploadFile, File, Request
+from fastapi.responses import JSONResponse
 
 from data.const import LANGUAGES, INVERTED_LANGUAGES
 from src.util import time_estimate
 from src.help import (
     help as help_page,
 )  # Renamed to avoid conflict with built-in help function
+from src.api import get_api_router
 
 # Load environment variables
 load_dotenv()
@@ -27,6 +30,7 @@ WINDOWS = os.getenv("WINDOWS") == "True"
 SSL_CERTFILE = os.getenv("SSL_CERTFILE")
 SSL_KEYFILE = os.getenv("SSL_KEYFILE")
 SUMMARIZATION = os.getenv("SUMMARIZATION") == "True"
+API_KEY = os.getenv("API_KEY", "")  # Optional API key for authentication
 
 if WINDOWS:
     os.environ["PATH"] += os.pathsep + "ffmpeg/bin"
@@ -157,6 +161,47 @@ async def handle_upload(e: events.UploadEventArguments, user_id):
     # Save the uploaded file
     with open(join(in_path, file_name), "wb") as f:
         f.write(e.content.read())
+
+async def handle_upload_api(file_content, file_name, user_id, hotwords=None):
+    """Save the uploaded file from API to disk."""
+    in_path = join(ROOT, "data", "in", user_id)
+    out_path = join(ROOT, "data", "out", user_id)
+    error_path = join(ROOT, "data", "error", user_id)
+
+    os.makedirs(in_path, exist_ok=True)
+    os.makedirs(out_path, exist_ok=True)
+
+    # Clean up error files if re-uploading
+    if os.path.exists(error_path):
+        error_file = join(error_path, file_name)
+        error_txt_file = error_file + ".txt"
+        if os.path.exists(error_file):
+            os.remove(error_file)
+        if os.path.exists(error_txt_file):
+            os.remove(error_txt_file)
+
+    # Ensure unique file names
+    original_file_name = file_name
+    for i in range(1, 10001):
+        if isfile(join(in_path, file_name)):
+            name, ext = os.path.splitext(original_file_name)
+            file_name = f"{name}_{i}{ext}"
+        else:
+            break
+    else:
+        return None, "Too many files with the same name"
+
+    # Save hotwords if provided
+    if hotwords:
+        hotwords_file = join(in_path, "hotwords.txt")
+        with open(hotwords_file, "w") as f:
+            f.write(hotwords)
+
+    # Save the uploaded file
+    with open(join(in_path, file_name), "wb") as f:
+        f.write(file_content)
+    
+    return file_name, None
 
 
 def handle_reject(e: events.GenericEventArguments):
@@ -660,7 +705,24 @@ async def main_page():
             display_files(user_id=user_id)
 
 
+# Initialize FastAPI app
+def init_app():
+    # Add API routes
+    router = get_api_router()
+    app.router.include_router(router)
+    # use add_api_route instead
+#    @app.fastapi.middleware("http")
+#    async def add_cors_headers(request: Request, call_next):
+#        response = await call_next(request)
+#        response.headers["Access-Control-Allow-Origin"] = "*"
+#        response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+#        response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+#        return response
+
 if __name__ in {"__main__", "__mp_main__"}:
+    # Initialize FastAPI routes
+    init_app()
+    
     if ONLINE:
         ui.run(
             port=8080,
