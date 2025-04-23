@@ -180,6 +180,7 @@ def transcribe_file(
                 False if DEVICE == "mps" else True
             ),  # on MPS is rather slow and unreliable, but you can try with setting this to true
             hotwords=hotwords,
+            batch_size=BATCH_SIZE
             num_speakers_detected=num_speakers_detected,
             language=language,
         )
