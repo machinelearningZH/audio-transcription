@@ -30,15 +30,6 @@
 
 </details>
 
-### Instructions
-- Ensure that the [LLama-cpp-python](https://github.com/abetlen/llama-cpp-python) package is installed. Follow the official installation instructions, adjusting them based on your hardware setup.
-- Modify Model Initialization (`worker.py`, lines 215–222):
-    - Specify the language model you want to use.
-    - Adjust the initialization parameters to match your setup.
-    - To run the model entirely on the GPU, set the parameter n_gpu_layers to -1.
-    - For more details on configuration and available parameters, refer to the llama-cpp-python repository.
-
-
 ## Setup Instructions
 ### Hardware requirements
 - We strongly recommend using a CUDA-compatible graphics card, as transcription on a CPU is extremely slow.
@@ -213,6 +204,14 @@ curl "http://localhost:8080/api/download/api_12345abcdef/recording.mp4.txt"
 
 ## Summarization
 This is only recommended if you have experience running a local language model. To use the summarization functionality, you must install [LLama-cpp-python](https://github.com/abetlen/llama-cpp-python) and run a local language model. Setting up the model requires technical expertise, as you will need to adjust the code and parameters based on your hardware and system configuration.
+
+### Instructions
+- Ensure that the [LLama-cpp-python](https://github.com/abetlen/llama-cpp-python) package is installed. Follow the official installation instructions, adjusting them based on your hardware setup.
+- Modify Model Initialization (`worker.py`, lines 215–222):
+    - Specify the language model you want to use.
+    - Adjust the initialization parameters to match your setup.
+    - To run the model entirely on the GPU, set the parameter n_gpu_layers to -1.
+    - For more details on configuration and available parameters, refer to the llama-cpp-python repository.
 
 ## Project Information
 This application provides advanced transcription capabilities for confidential audio and video files using the state-of-the-art Whisper v3 large model (non-quantized). It offers top-tier transcription quality without licensing or usage fees, even for Swiss German.
