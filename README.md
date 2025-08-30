@@ -10,7 +10,7 @@
 <a href="https://github.com/astral-sh/ruff"><img alt="linting - Ruff" class="off-glb" loading="lazy" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json"></a>
 
 
-<img src="_img/ui1.PNG" alt="editor" width="1000"/>
+<img src="_img/ui1.png" alt="editor" width="1000"/>
 
 <details>
 
