@@ -4,7 +4,7 @@ version = "1.0.0"
 description = "Transcribe any audio or video file. Edit and view your transcripts in a standalone HTML editor."
 requires-python = "==3.12.7"
 dependencies = [
-    "torch==2.5.0+cu124",
+    "torch==2.8.0",
     "torchaudio==2.5.0+cu124",
     "onnxruntime-gpu==1.18.1",
     "numpy==1.26.3",

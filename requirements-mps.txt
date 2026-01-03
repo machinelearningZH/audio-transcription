@@ -1,4 +1,4 @@
 mlx_whisper==0.4.1
-torch==2.5.1
+torch==2.8.0
 torchaudio==2.5.1
 torchvision==0.20.1
